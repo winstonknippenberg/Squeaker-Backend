@@ -66,7 +66,7 @@ app.get('/user/:handle', getUserDetails);
 //   appInstance[method](`/${path}`, protected ? FBauth : undefined, handler)
 // }
 
-createProtectedRoute(app, '/squeak', postOneSqueak, 'post');
+// createProtectedRoute(app, '/squeak', postOneSqueak, 'post');
 
 // protected routes
 app.post('/squeak', FBauth, postOneSqueak);

@@ -28,7 +28,6 @@ const getAllSqueaks = async (req, res) => {
         userHandle,
         createdAt,
         commentCount,
-        createdAt,
         likeCount,
         userImg,
         comments,
