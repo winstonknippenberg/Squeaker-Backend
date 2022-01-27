@@ -22,32 +22,21 @@ const getAllSqueaks = async (req, res) => {
     const squeaksDocs = await getDocs(squeaksQuery);
     let squeaks = [];
     squeaksDocs.forEach((squeak) => {
-      const { data, id: squeakId } = squeak;
-      const {
-        body,
-        userHandle,
-        createdAt,
-        commentCount,
-        likeCount,
-        userImg,
-        comments,
-      } = data();
       squeaks.push({
-        squeakId,
-        body,
-        userHandle,
-        createdAt,
-        commentCount,
-        likeCount,
-        userImg,
-        comments,
+        squeakId: squeak.id,
+        body: squeak.data().body,
+        userHandle: squeak.data().userHandle,
+        createdAt: squeak.data().createdAt,
+        commentCount: squeak.data().commentCount,
+        likeCount: squeak.data().likeCount,
+        userImg: squeak.data().userImg,
+        comments: squeak.data().comments,
       });
     });
     return res.json(squeaks);
   } catch (error) {
     res.status(500).json(error);
     console.error(error);
-    return;
   }
 };
 
